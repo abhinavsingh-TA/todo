@@ -9,12 +9,23 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
+import { HomeComponent } from './component/home/home.component';
+import { NotecardComponent } from './component/notecard/notecard.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { UsersService } from './users.service';
+import { LoginComponent } from './component/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    NotecardComponent,
+    NavbarComponent,
+    LoginComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule
@@ -40,7 +51,8 @@ import {
           console.error(err);
         }
       } as SocialAuthServiceConfig,
-    }
+    },
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

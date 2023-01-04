@@ -1,11 +1,86 @@
-<div *ngIf="!user">
-<asl-google-signin-button></asl-google-signin-button>
-<button (click)="signInWithFB()">Facebook</button>
+<app-navbar></app-navbar>
+<!-- <app-login *ngIf="!this.userService.user"></app-login> -->
+<br>
+<app-home></app-home>
+
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-4 col-12">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <img class="card-img-top img-fluid" src={{user.photoUrl}} alt="Card image cap">
+                    <div class="card-body">
+                    <h4 class="card-title">1 Card title</h4>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-12">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <img class="card-img-top img-fluid" src={{user.photoUrl}} alt="Card image cap">
+                    <div class="card-body">
+                    <h4 class="card-title">1 Card title</h4>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-12">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <img class="card-img-top img-fluid" src={{user.photoUrl}} alt="Card image cap">
+                    <div class="card-body">
+                    <h4 class="card-title">1 Card title</h4>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="col-lg-4 col-md-6 col-12">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <img class="card-img-top img-fluid" src={{user.photoUrl}} alt="Card image cap">
+                    <div class="card-body">
+                    <h4 class="card-title">1 Card title</h4>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <img class="card-img-top img-fluid" src={{user.photoUrl}} alt="Card image cap">
+                    <div class="card-body">
+                    <h4 class="card-title">1 Card title</h4>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <img class="card-img-top img-fluid" src={{user.photoUrl}} alt="Card image cap">
+                    <div class="card-body">
+                    <h4 class="card-title">1 Card title</h4>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div *ngIf="user">
-  <img src={{user.photoUrrl}} />
-  <div>
-  <h1>Hello {{user.firstName}}</h1>
-  <button (click)="signOut()">Sign Out</button>
-  </div>
-</div>
+
+ -->

@@ -1,0 +1,26 @@
+<div class="container p-10">
+    <div class="form-container">
+      <div class="row justify-content-center align-content-center">
+          <div class="col-md-6">
+              <div class="card p-5">
+              <h2 class="text-center">Sign In</h2>
+              <br>
+              <form>
+                  <!--{% csrf_token %}-->
+                  <div class="form-group">
+                    <asl-google-signin-button type="standard" size="large" logo_alignment="center" width="400"></asl-google-signin-button>
+
+                    <!-- <button type="button" class="btn btn-primary btn-block" (click)="this.userService.signInWithGoogle()">Signin with Google</button> -->
+                  </div>
+
+                  <br>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-block" (click)="this.userService.signInWithFB()">Signin with Facebook</button>
+                  </div>
+              </form>
+          </div>
+          </div>
+      </div>
+   </div>
+</div>
+

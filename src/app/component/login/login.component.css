@@ -1,0 +1,11 @@
+.container {
+  background: #1D8FF9;
+  padding: 10rem 0;
+}
+.font-weight-bold {
+  font-weight: 600;
+}
+.btn-block {
+  display: block!important;
+  width: 100%;
+}

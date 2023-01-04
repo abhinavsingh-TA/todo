@@ -1,0 +1,13 @@
+<div>
+    <div class="card mb-4" [ngStyle]="{backgroundColor: '#92A8D1'}">
+        <div class="card-header"></div>
+        <div class="card-body"  class="card-deck" [ngStyle]="{height: '15em', padding: '1em'}">
+        <h4 class="card-title">{{note.title}}</h4>
+        <p class="card-text">{{note.description.substr(0,200)+"..."}}</p>
+        <div class="d-flex justify-content-between">
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-danger">Delete</button>
+        </div>
+        </div>
+    </div>
+</div>

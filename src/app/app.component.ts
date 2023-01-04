@@ -1,5 +1,6 @@
-import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from './users.service';
 
 @Component({
   selector: 'app-root',
@@ -8,27 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   title = 'todo';
-  user: SocialUser
 
-  constructor(private authService: SocialAuthService) { }
+  constructor(private authService: SocialAuthService, protected userService: UsersService) { }
 
   ngOnInit(): void {
     this.authService.authState.subscribe((user)=>{
-      this.user = user
+      this.userService.user = user
     })
   }
 
-  signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
-
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
-
-  signOut(): void {
-    console.log('sign out')
-    this.authService.signOut();
-  }
   
 }

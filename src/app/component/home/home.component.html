@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+         <div class="container" [ngStyle]="{width: '30em'}">
+         <div>
+            <div class="form-outline mb-4">
+              <input type="text" id="form1Example1" class="form-control" placeholder="Title" [(ngModel)]="title" />
+            </div>
+          
+            <div class="form-outline mb-4">
+              <textarea type="text" id="form1Example2" class="form-control" placeholder="Description" [(ngModel)]="description"></textarea>
+            </div>
+          
+            <button (click)="addNote()" class="btn btn-primary btn-block">Add</button>
+          </div>
+          <br>
+        </div> 
+        <hr>
+        <div class="col-md-6 col-lg-4 col-12" *ngFor="let note of this.userService.notes">
+        <app-notecard [note]="note"></app-notecard>
+      </div>
+    </div>
+</div>
+
