@@ -5,7 +5,7 @@
         <p class="card-text">{{note.description.substr(0,200)+"..."}}</p>
         <div class="d-flex justify-content-between">
         <button class="btn" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}">Edit</button>
-        <button class="btn" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}">Delete</button>
+        <button class="btn" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}" (click)="deleteNote(note.key)">Delete</button>
         </div>
         </div>
     </div>

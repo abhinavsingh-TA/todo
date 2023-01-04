@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
   user: SocialUser
-  notes: {title: string, description: string}[] = [{title: 'Eifel Tower', description: "The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower. Locally nicknamed 'La dame de fer', it was constructed from 1887 to 1889 as the centerpiece of the 1889 World's Fair."}]
+  notes: {key: string, title: string, description: string}[] = [{key: '2', title: 'Eifel Tower', description: "The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower. Locally nicknamed 'La dame de fer', it was constructed from 1887 to 1889 as the centerpiece of the 1889 World's Fair."}]
 
   constructor(private authService: SocialAuthService) { }
 

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/users.service';
 
 @Component({
   selector: 'app-notecard',
@@ -7,11 +8,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NotecardComponent implements OnInit {
   
-  @Input() note: {title: string, description: string}
+  @Input() note: {key: string, title: string, description: string}
 
-  constructor() { }
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
+  }
+  
+  deleteNote(key){
+    const index = this.userService.notes.indexOf(key, 0);
+
+    for(let i=0;i<this.userService.notes.length;i++){
+      if(this.userService.notes[i].key === key)
+        this.userService.notes.splice(index, 1);
+    }
   }
 
 }

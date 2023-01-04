@@ -10,7 +10,7 @@
               <textarea type="text" id="form1Example2" class="form-control" placeholder="Description" [(ngModel)]="description"></textarea>
             </div>
           
-            <button (click)="addNote()" class="btn btn-block" [ngStyle]="{backgroundColor: '#808080'}">Add</button>
+            <button (click)="addNote()" [disabled]="!(title.length>0)" class="btn btn-block" [ngStyle]="{backgroundColor: '#808080', color: 'whitesmoke'}">Add</button>
           </div>
           <br>
         </div> 
