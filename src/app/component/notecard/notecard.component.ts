@@ -14,12 +14,17 @@ export class NotecardComponent implements OnInit {
   constructor(protected userService: UsersService) { }
 
   ngOnInit(): void {
+    this.userService.edit = false
   }
 
   openModal(){
+    if(this.userService.edit)
+      this.userService.edit = false
     this.userService.editData = this.note
-    console.log(this.userService.editData)
-    this.userService.edit = true
+    setTimeout(() => {
+      this.userService.edit = true      
+    }, 1);
+
   }
   
   deleteNote(key: string){
