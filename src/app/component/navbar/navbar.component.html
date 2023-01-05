@@ -1,9 +1,9 @@
 <nav class="navbar navbar-light" [ngStyle]="{backgroundColor: '#808080', color: 'white'}">
   <a class="navbar-brand" [ngStyle]="{marginLeft: '1em', color: 'whitesmoke'}">
-    <p *ngIf="this.userService.user">{{this.userService.user.firstName}}</p>
+    <p *ngIf="this.userService.user"><span [ngStyle]="{color: 'black'}">{{"Hi "}}</span>{{this.userService.user.firstName}}</p>
     <p *ngIf="!this.userService.user">Notes</p>
   </a>
   <div class="justify-content-end">
-    <button *ngIf="this.userService.user" class="btn btn-primary" [ngStyle]="{marginRight: '1.5em'}" (click)="this.userService.signOut()">Sign Out</button>
+    <button *ngIf="this.userService.user" class="btn" [ngStyle]="{marginRight: '1.5em', backgroundColor: '#4d4d4d', color: 'whitesmoke'}" (click)="this.userService.signOut()">Sign Out</button>
   </div>
 </nav>

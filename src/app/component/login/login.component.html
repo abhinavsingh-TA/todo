@@ -1,5 +1,6 @@
 <div class="container p-10">
-    <div class="form-container">
+  <div class="inverted-border-radius"></div>
+  <div class="form-container">
       <div class="row justify-content-center align-content-center">
           <div class="col-md-6">
               <div class="card p-5">
@@ -15,7 +16,7 @@
 
                   <br>
                   <div class="form-group">
-                    <button type="button" class="btn btn-primary btn-block" (click)="this.userService.signInWithFB()">Signin with Facebook</button>
+                    <button type="button" class="btn btn-block" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}" (click)="this.userService.signInWithFB()">Signin with Facebook</button>
                   </div>
               </form>
           </div>
