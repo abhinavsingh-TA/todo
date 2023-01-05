@@ -15,12 +15,10 @@ export class NotecardComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  deleteNote(key){
-    const index = this.userService.notes.indexOf(key, 0);
-
+  deleteNote(key: string){
     for(let i=0;i<this.userService.notes.length;i++){
       if(this.userService.notes[i].key === key)
-        this.userService.notes.splice(index, 1);
+        this.userService.notes.splice(i, 1);
     }
   }
 
