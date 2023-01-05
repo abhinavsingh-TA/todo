@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/users.service';
 
-declare var window: any
 @Component({
   selector: 'app-notecard',
   templateUrl: './notecard.component.html',
@@ -10,23 +9,17 @@ declare var window: any
 export class NotecardComponent implements OnInit {
   
   @Input() note: {key: string, title: string, description: string}
+  editData: {key: string, title: string, description: string}
   
-  formModal: any
-
-  constructor(private userService: UsersService) { }
+  constructor(protected userService: UsersService) { }
 
   ngOnInit(): void {
-    this.formModal = new window.bootstrap.Modal(
-      document.getElementById('exampleModal')
-    )
   }
 
   openModal(){
-    this.formModal.show()
-  }
-
-  closeModal(){
-    this.formModal.hide()
+    this.userService.editData = this.note
+    console.log(this.userService.editData)
+    this.userService.edit = true
   }
   
   deleteNote(key: string){

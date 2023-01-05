@@ -15,6 +15,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { UsersService } from './users.service';
 import { LoginComponent } from './component/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { ModalComponent } from './component/notecard/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NotecardComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    ModalComponent
   ],
   imports: [
     FormsModule,

@@ -7,7 +7,7 @@
             </div>
           
             <div class="form-outline mb-4">
-              <textarea type="text" id="form1Example2" class="form-control" placeholder="Description" [(ngModel)]="description"></textarea>
+              <textarea type="text" id="form1Example2" class="form-control" placeholder="Description" [(ngModel)]="description" [ngStyle]="{height: description.length/2+'px', minHeight: '100px', maxHeight: '400px'}"></textarea>
             </div>
           
             <button (click)="addNote()" [disabled]="!(title.length>0)" class="btn btn-block" [ngStyle]="{backgroundColor: '#808080', color: 'whitesmoke'}">Add</button>
