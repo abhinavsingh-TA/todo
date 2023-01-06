@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### 1. Clone the repository
 
-### 2. Run npm install to install all the dependencies
+### 2. Run command: `npm install` to install all the dependencies
 
 ### 3. Run the development server using the command : `ng serve`
 
