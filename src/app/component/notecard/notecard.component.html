@@ -1,8 +1,10 @@
 <div>
     <div class="card mb-4" [ngStyle]="{backgroundColor: '#d9d9d9'}">
         <div class="card-body"  class="card-deck" [ngStyle]="{height: '15em', padding: '1em'}">
-        <h4 class="card-title">{{note.title}}</h4>
-        <p class="card-text">{{note.description.substr(0,200)+"..."}}</p>
+        <h4 class="card-title" *ngIf="note.title.length<25">{{note.title}}</h4>
+        <h4 class="card-title" *ngIf="note.title.length>=25">{{note.title.substr(0,25)+"..."}}</h4>
+        <p class="card-text" *ngIf="note.description.length<200">{{note.description}}</p>
+        <p class="card-text" *ngIf="note.description.length>=200">{{note.description.substr(0,200)+"..."}}</p>
         <div class="d-flex justify-content-between">
         <button class="btn" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}" (click)="openModal()">Edit</button>
         <button class="btn" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}" (click)="deleteNote(note.key)">Delete</button>
