@@ -6,8 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
   user: SocialUser
-  notes: {key: string, title: string, description: string}[] = [{key: '2', title: 'Eifel Tower', description: "The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower. Locally nicknamed 'La dame de fer', it was constructed from 1887 to 1889 as the centerpiece of the 1889 World's Fair."},
-          {key: '3', title: 'Leaning tower of Pisa', description: "The Leaning Tower of Pisa, or simply, the Tower of Pisa, is the campanile, or freestanding bell tower, of Pisa Cathedral. It is known for its nearly four-degree lean, the result of an unstable foundation."}]
+  notes: {key: string, title: string, description: string}[] = []
   edit: boolean = false
   editData: {key: string, title: string, description: string}
   
