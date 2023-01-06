@@ -41,6 +41,13 @@ export class ModalComponent implements OnInit, OnDestroy {
     }
   }
   
+  autogrow(){
+    let  textArea = document.getElementById("message-text")       
+    textArea.style.overflow = 'hidden';
+    textArea.style.height = '0px';
+    textArea.style.height = textArea.scrollHeight + 'px';
+  }
+
   ngOnDestroy(): void {
     this.userService.edit = false
     this.formModal.hide()

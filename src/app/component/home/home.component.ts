@@ -28,5 +28,12 @@ export class HomeComponent implements OnInit {
     console.log(this.userService.notes)
   }
 
+  autogrow(){
+    let  textArea = document.getElementById("form1Example2")       
+    textArea.style.overflow = 'hidden';
+    textArea.style.height = '0px';
+    textArea.style.height = textArea.scrollHeight + 'px';
+  }
+
 
 }
