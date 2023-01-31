@@ -14,13 +14,22 @@
           </div>
           <br>
         </div>  -->
+
+        <div class="input-group mb-3" [ngStyle]="{marginTop: '20px'}">
+          <input [(ngModel)]="searchProduct" type="text" class="form-control" placeholder="Seacrh by title" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="input-group-text btn btn-primary" id="basic-addon2" (click)="search()">Search</button>
+          </div>
+        </div>
+        
         <hr>
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" [ngStyle]="{marginLeft: '30em'}">
           <div class="btn-group mr-2" role="group" aria-label="First group">
             <button type="button" class="btn btn-light" (click)="pageChange('<')" [disabled]="curPage===1">{{"<"}}</button>
             <button type="button" class="btn btn-light" (click)="pageChange(curPage)">{{curPage}}</button>
-            <button type="button" class="btn btn-light" (click)="pageChange(curPage+1)">{{curPage+1}}</button>
-            <button type="button" class="btn btn-light" (click)="pageChange('>')" [disabled]="curPage==maxLen">{{">"}}</button>
+            <button type="button" class="btn btn-light" (click)="pageChange(curPage+1)" [disabled]="curPage+1>maxLen">{{curPage+1}}</button>
+            <button type="button" class="btn btn-light" (click)="pageChange(curPage+2)" [disabled]="curPage+2>maxLen">{{curPage+2}}</button>
+            <button type="button" class="btn btn-light" (click)="pageChange('>')" [disabled]="curPage>=maxLen">{{">"}}</button>
           </div>
         </div>
         <div class="col-12" *ngFor="let product of curProducts">

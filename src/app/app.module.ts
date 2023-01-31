@@ -16,8 +16,15 @@ import { UsersService } from './users.service';
 import { LoginComponent } from './component/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ModalComponent } from './component/notecard/modal/modal.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { PaymentComponent } from './component/payment/payment.component'
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: '', component: LoginComponent},
+  { path: 'home', component: HomeComponent},
+  { path: 'payment', component: PaymentComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,14 +32,17 @@ import { HttpClientModule } from '@angular/common/http'
     NotecardComponent,
     NavbarComponent,
     LoginComponent,
-    ModalComponent
+    ModalComponent,
+    PaymentComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     {

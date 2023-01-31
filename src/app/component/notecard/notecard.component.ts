@@ -18,6 +18,10 @@ export class NotecardComponent implements OnInit {
     this.userService.edit = false
   }
 
+  addToCart(key: string, title: string, description: string){
+    this.userService.cart.push({key: key, title: title, description: description})
+  }
+
   openModal(){
     if(this.userService.edit)
       this.userService.edit = false

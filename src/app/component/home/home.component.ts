@@ -18,6 +18,9 @@ export class HomeComponent implements OnInit {
   curProducts: product[]
   maxLen: number
 
+  searchProduct: string
+  allSearchProduct: product[]
+
   constructor(protected userService: UsersService, public datepipe: DatePipe, private http: HttpClient) {
     let currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss:sss');
   
@@ -46,7 +49,27 @@ export class HomeComponent implements OnInit {
     else
       this.curPage = page
 
-    this.curProducts = this.userService.products.slice((this.curPage-1)*5, this.curPage*5)
+    if(this.allSearchProduct.length>0){
+      this.curProducts = this.allSearchProduct.slice((this.curPage-1)*5, this.curPage*5)
+      this.maxLen = Math.ceil(this.allSearchProduct.length/5)
+    }
+    else{
+      this.curProducts = this.userService.products.slice((this.curPage-1)*5, this.curPage*5)
+      this.maxLen = Math.ceil(this.userService.products.length/5)
+    }
+  }
+
+  search(){
+    console.log(this.searchProduct)
+    this.curPage = 1
+    let arr: product[] = []
+    for(let i=0;i<this.userService.products.length;i++){
+      if(this.userService.products[i].title.toLowerCase().includes(this.searchProduct))
+        arr.push(this.userService.products[i])
+    }
+    console.log(arr)
+    this.curProducts = arr.slice(0,5)
+    this.allSearchProduct = arr
   }
 
   // addNote(){

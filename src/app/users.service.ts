@@ -10,7 +10,8 @@ export class UsersService {
   products: product[] = []
   edit: boolean = false
   editData: {key: string, title: string, description: string}
-  
+  cart: {key: string, title: string, description: string}[] = []
+
   constructor(private authService: SocialAuthService) { }
 
   signInWithGoogle(): void {
