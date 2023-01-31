@@ -1,16 +1,44 @@
-<div>
+<!-- <div>
     <div class="card mb-4" [ngStyle]="{backgroundColor: '#d9d9d9'}">
         <div class="card-body"  class="card-deck" [ngStyle]="{height: '15em', padding: '1em'}">
-        <h4 class="card-title" *ngIf="note.title.length<25">{{note.title}}</h4>
-        <h4 class="card-title" *ngIf="note.title.length>=25">{{note.title.substr(0,25)+"..."}}</h4>
-        <p class="card-text" *ngIf="note.description.length<200">{{note.description}}</p>
-        <p class="card-text" *ngIf="note.description.length>=200">{{note.description.substr(0,200)+"..."}}</p>
+        <h4 class="card-title" *ngIf="product.title.length<25">{{product.title}}</h4>
+        <h4 class="card-title" *ngIf="product.title.length>=25">{{product.title.substr(0,25)+"..."}}</h4>
+        <p class="card-text" *ngIf="product.description.length<200">{{product.description}}</p>
+        <p class="card-text" *ngIf="product.description.length>=200">{{product.description.substr(0,200)+"..."}}</p>
+        <span>{{product.currencyFormat+" "+product.price}}</span>
         <div class="d-flex justify-content-between">
         <button class="btn" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}" (click)="openModal()">Edit</button>
-        <button class="btn" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}" (click)="deleteNote(note.key)">Delete</button>
+        <button class="btn" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}" (click)="deleteNote(product.key)">Delete</button>
         </div>
         </div>
     </div>
-</div>
+</div> -->
   
 <app-modal *ngIf="this.userService.edit"></app-modal>
+
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+            <div class="row p-2 bg-white border rounded">
+                <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
+                <div class="col-md-6 mt-1">
+                    <h5>{{product.title}}</h5>
+                    <div class="mt-1 mb-1 spec-1"><span>{{product.style}}</span></div>
+                    <p class="text-justify text-truncate para mb-0">{{product.description}}<br><br></p>
+                
+                    <div class="sizes">
+                        <h6 class="text-uppercase">Size</h6> <label class="radio"> <input type="radio" name="size" value="S" checked> <span>S</span> </label> <label class="radio"> <input type="radio" name="size" value="M"> <span>M</span> </label> <label class="radio"> <input type="radio" name="size" value="L"> <span>L</span> </label> <label class="radio"> <input type="radio" name="size" value="XL"> <span>XL</span> </label> <label class="radio"> <input type="radio" name="size" value="XXL"> <span>XXL</span> </label>
+                    </div>
+                </div>                    
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">{{product.currencyFormat+" "+product.price}}</h4>
+                    </div>
+                    <h6 class="text-success" *ngIf="product.isFreeShipping">Free shipping</h6>
+                    <h6 class="text-danger strike-text" *ngIf="!product.isFreeShipping">Free shipping</h6>
+                    <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm mt-2" type="button">Add to cart</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

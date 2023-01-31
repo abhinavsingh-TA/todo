@@ -1,12 +1,13 @@
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Injectable } from '@angular/core';
+import { product } from './product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
   user: SocialUser
-  notes: {key: string, title: string, description: string}[] = []
+  products: product[] = []
   edit: boolean = false
   editData: {key: string, title: string, description: string}
   

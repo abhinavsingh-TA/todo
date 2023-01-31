@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { product } from 'src/app/product.model';
 import { UsersService } from 'src/app/users.service';
 
 @Component({
@@ -8,8 +9,8 @@ import { UsersService } from 'src/app/users.service';
 })
 export class NotecardComponent implements OnInit {
   
-  @Input() note: {key: string, title: string, description: string}
-  editData: {key: string, title: string, description: string}
+  @Input() product: product
+  editData: product
   
   constructor(protected userService: UsersService) { }
 
@@ -20,7 +21,7 @@ export class NotecardComponent implements OnInit {
   openModal(){
     if(this.userService.edit)
       this.userService.edit = false
-    this.userService.editData = this.note
+    this.userService.editData = this.product
     setTimeout(() => {
       this.userService.edit = true      
     }, 1);
@@ -28,10 +29,10 @@ export class NotecardComponent implements OnInit {
   }
   
   deleteNote(key: string){
-    for(let i=0;i<this.userService.notes.length;i++){
-      if(this.userService.notes[i].key === key)
-        this.userService.notes.splice(i, 1);
-    }
+    // for(let i=0;i<this.userService.notes.length;i++){
+    //   if(this.userService.notes[i].key === key)
+    //     this.userService.notes.splice(i, 1);
+    // }
   }
 
 }

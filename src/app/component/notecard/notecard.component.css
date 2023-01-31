@@ -1,0 +1,32 @@
+
+  .card:hover {
+    box-shadow: 0px 4px 4px #2b2a2a;
+  }
+
+
+  body{background:#eee}.ratings i{font-size: 16px;color: red}.strike-text{color: red;text-decoration: line-through}.product-image{width: 100%}.dot{height: 7px;width: 7px;margin-left: 6px;margin-right: 6px;margin-top: 3px;background-color: blue;border-radius: 50%;display: inline-block}.spec-1{color: #938787;font-size: 15px}h5{font-weight: 400}.para{font-size: 16px}
+
+  label.radio {
+    cursor: pointer
+    }
+    label.radio input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    pointer-events: none
+    }
+    label.radio span {
+    padding: 2px 9px;
+    margin-left: 1px;
+    border: 2px solid #2596be;
+    display: inline-block;
+    color: #2596be;
+    border-radius: 3px;
+    text-transform: uppercase
+    }
+    label.radio input:checked+span {
+    border-color: #2596be;
+    background-color: #2596be;
+    color: #fff
+    }

@@ -33,12 +33,12 @@ export class ModalComponent implements OnInit, OnDestroy {
   }
 
   saveChanges(key: string){
-    for(let i=0;i<this.userService.notes.length;i++){
-      if(this.userService.notes[i].key === key){
-        this.userService.notes[i] = {...this.userService.notes[i], title:this.editTitle, description: this.editDesc}
-        break
-      }
-    }
+    // for(let i=0;i<this.userService.notes.length;i++){
+    //   if(this.userService.notes[i].key === key){
+    //     this.userService.notes[i] = {...this.userService.notes[i], title:this.editTitle, description: this.editDesc}
+    //     break
+    //   }
+    // }
   }
   
   autogrow(){

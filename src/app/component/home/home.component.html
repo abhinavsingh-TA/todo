@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-         <div class="container" [ngStyle]="{width: '30em'}">
+         <!-- <div class="container" [ngStyle]="{width: '30em'}">
          <div>
             <div class="form-outline mb-4">
               <input type="text" id="form1Example1" class="form-control" placeholder="Title" [(ngModel)]="title" />
@@ -13,10 +13,10 @@
             <button (click)="addNote()" [disabled]="!(title.length>0)" class="btn btn-block" [ngStyle]="{backgroundColor: '#808080', color: 'whitesmoke'}">Add</button>
           </div>
           <br>
-        </div> 
+        </div>  -->
         <hr>
-        <div class="col-md-6 col-lg-4 col-12" *ngFor="let note of this.userService.notes">
-        <app-notecard [note]="note"></app-notecard>
+        <div class="col-12" *ngFor="let product of this.userService.products">
+        <app-notecard [product]="product"></app-notecard>
       </div>
     </div>
 </div>
