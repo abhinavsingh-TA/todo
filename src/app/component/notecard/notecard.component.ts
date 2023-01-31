@@ -18,8 +18,16 @@ export class NotecardComponent implements OnInit {
     this.userService.edit = false
   }
 
-  addToCart(key: string, title: string, description: string){
-    this.userService.cart.push({key: key, title: title, description: description})
+  addToCart(key: string, title: string, description: string, price: number, currencyFormat: string){
+    if(!this.userService.cart.has(key))
+      this.userService.cart.set(key, {total: 1, title: title, description: description, price: price, currencyFormat: currencyFormat})
+    else
+      this.userService.cart.set(key, {total: this.userService.cart.get(key).total+1, title: title, description: description, price: price, currencyFormat: currencyFormat})
+    
+    this.userService.cartTotal += 1
+    console.log(this.userService.cart)
+
+    // this.userService.cart.push({key: key, title: title, description: description, price: price, currencyFormat: currencyFormat})
   }
 
   openModal(){

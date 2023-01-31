@@ -10,7 +10,8 @@ export class UsersService {
   products: product[] = []
   edit: boolean = false
   editData: {key: string, title: string, description: string}
-  cart: {key: string, title: string, description: string}[] = []
+  cart: Map<string, {total: number, title: string, description: string, price: number, currencyFormat: string}> = new Map<string, {total: number, title: string, description: string, price: number, currencyFormat: string}>()
+  cartTotal: number = 0
 
   constructor(private authService: SocialAuthService) { }
 
