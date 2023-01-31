@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
   title: string = ""
   description: string = ""
   products: product[]
+  curPage: number = 1
+  curProducts: product[]
+  maxLen: number
 
   constructor(protected userService: UsersService, public datepipe: DatePipe, private http: HttpClient) {
     let currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss:sss');
@@ -25,12 +28,25 @@ export class HomeComponent implements OnInit {
     let url="https://exp.kkant.repl.co/products.json"
     this.http.get(url).subscribe(products=>{
       console.log(products['products'])
-      console.log(products['products'])
 
       let arr = products['products']
       for(let i=0;i<arr.length;i++)
         this.userService.products.push(new product(arr[i]['id'], arr[i]['title'], arr[i]['description'], arr[i]['availableSizes'], arr[i]['price'], arr[i]['currencyId'], arr[i]['currencyFormat'], arr[i]['isFreeShipping'], arr[i]['style']))
+      this.maxLen = Math.ceil(this.userService.products.length/5)
+      this.curProducts = this.userService.products.slice(0,5)
     })
+  }
+
+  pageChange(page: any){
+    console.log(this.curProducts)
+    if(page == '<')
+      this.curPage = Math.max(1, this.curPage-1)
+    else if(page == '>')
+      this.curPage = Math.min(this.maxLen, this.curPage+1)
+    else
+      this.curPage = page
+
+    this.curProducts = this.userService.products.slice((this.curPage-1)*5, this.curPage*5)
   }
 
   // addNote(){

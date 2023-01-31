@@ -15,7 +15,15 @@
           <br>
         </div>  -->
         <hr>
-        <div class="col-12" *ngFor="let product of this.userService.products">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-light" (click)="pageChange('<')" [disabled]="curPage===1">{{"<"}}</button>
+            <button type="button" class="btn btn-light" (click)="pageChange(curPage)">{{curPage}}</button>
+            <button type="button" class="btn btn-light" (click)="pageChange(curPage+1)">{{curPage+1}}</button>
+            <button type="button" class="btn btn-light" (click)="pageChange('>')" [disabled]="curPage==maxLen">{{">"}}</button>
+          </div>
+        </div>
+        <div class="col-12" *ngFor="let product of curProducts">
         <app-notecard [product]="product"></app-notecard>
       </div>
     </div>
