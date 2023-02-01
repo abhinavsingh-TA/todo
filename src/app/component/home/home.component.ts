@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/users.service';
 import { HttpClient } from '@angular/common/http';
 import { product } from 'src/app/product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -21,13 +22,16 @@ export class HomeComponent implements OnInit {
   searchProduct: string
   allSearchProduct: product[]
 
-  constructor(protected userService: UsersService, public datepipe: DatePipe, private http: HttpClient) {
+  constructor(protected userService: UsersService, public datepipe: DatePipe, private http: HttpClient, private router: Router) {
     let currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss:sss');
   
     console.log(currentDateTime);
    }
 
   ngOnInit(): void {
+    // if(!this.userService.user)
+    //     this.router.navigate(['/'])
+
     let url="https://exp.kkant.repl.co/products.json"
     this.http.get(url).subscribe(products=>{
       console.log(products['products'])
