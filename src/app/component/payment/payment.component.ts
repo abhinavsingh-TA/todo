@@ -17,9 +17,17 @@ export class PaymentComponent implements OnInit {
   ngOnInit(): void {
     this.cartArray = [...this.userService.cart]
 
+    this.calculateSum()    
+  }
+
+  calculateSum(){
     //total pay
+    this.total = 0
+    this.freeShipping = true
+    this.userService.cartTotal = 0
     for(let item of this.userService.cart.values()){
       this.total += (item.total*item.price)
+      this.userService.cartTotal += item.total
       if(!item.isFreeShipping)
         this.freeShipping = false
     }
@@ -38,7 +46,16 @@ export class PaymentComponent implements OnInit {
       obj.total += 1
     }
     this.cartArray = [...this.userService.cart]
+    this.calculateSum()
     console.log(this.cartArray)
+  }
+
+  deleteItem(key: string){
+    if(confirm("Are you sure to remove this item from the cart?")) {
+      this.userService.cart.delete(key)
+    }
+    this.cartArray = [...this.userService.cart]
+    this.calculateSum()
   }
 
 }
