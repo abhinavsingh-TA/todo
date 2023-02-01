@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   maxLen: number
 
   searchProduct: string
-  allSearchProduct: product[]
+  allSearchProduct: product[] = []
 
   constructor(protected userService: UsersService, public datepipe: DatePipe, private http: HttpClient, private router: Router) {
     let currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss:sss');
