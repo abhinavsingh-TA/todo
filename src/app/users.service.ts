@@ -9,8 +9,9 @@ import { product } from './product.model';
 export class UsersService {
   user: SocialUser
   products: product[] = []
-  edit: boolean = false
-  editData: {key: string, title: string, description: string}
+  allSearchProduct: product[] = []
+  curPage: number = 1
+  curProducts: product[]
   cart: Map<string, {key:string, total: number, title: string, description: string, price: number, currencyFormat: string, isFreeShipping: boolean}> = new Map<string, {key:string, total: number, title: string, description: string, price: number, currencyFormat: string, isFreeShipping: boolean}>()
   cartTotal: number = 0
 

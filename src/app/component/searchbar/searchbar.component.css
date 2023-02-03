@@ -1,0 +1,13 @@
+.btx{
+    background-color: #6B5B95;
+    color: whitesmoke;
+}
+
+select{
+    border-style: none;
+    background-color: #f0ecec;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}

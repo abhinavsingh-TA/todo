@@ -15,10 +15,10 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { UsersService } from './users.service';
 import { LoginComponent } from './component/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { ModalComponent } from './component/notecard/modal/modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PaymentComponent } from './component/payment/payment.component'
 import { RouterModule, Routes } from '@angular/router';
+import { SearchbarComponent } from './component/searchbar/searchbar.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -32,8 +32,8 @@ const appRoutes: Routes = [
     NotecardComponent,
     NavbarComponent,
     LoginComponent,
-    ModalComponent,
-    PaymentComponent
+    PaymentComponent,
+    SearchbarComponent
   ],
   imports: [
     FormsModule,

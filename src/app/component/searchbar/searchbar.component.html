@@ -1,0 +1,76 @@
+<br>
+<div class="container" [ngStyle]="{textAlign: 'center'}">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btx" data-bs-toggle="collapse" href="#collapseExample">Filter</button>
+    <button type="button" class="btn btx" (click)="clearFilter()">Reset</button>
+  </div>
+</div>
+  <div class="collapse" id="collapseExample">
+      <br>
+      <div class="input-group rounded">
+        <input [(ngModel)]="searchProduct" type="search" class="form-control rounded" placeholder="Search by title..." aria-label="Search" aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon" (click)="search()">
+          <i class="fa fa-search"></i>
+        </span>
+      </div>
+
+      <form [ngStyle]="{marginTop: '5px', marginBottom: '5px'}" (ngSubmit)="onSubmit(f)" #f="ngForm" class="row g-3" id="searchForm">
+        <div class="form-row align-items-center d-flex justify-content-between">
+          <div class="col-sm-2 my-1">
+            <select [ngModel]="selSort" name="sort" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <option selected hidden>Sort By</option>
+              <option>Price: High to Low</option>
+              <option>Price: Low to High</option>
+            </select>
+          </div>
+          <div class="col-sm-2 my-1">
+            <select [ngModel]="selColor" name="color" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <option selected hidden>Filter by color</option>
+              <option>White</option>
+              <option>Black</option>
+              <option>Blue</option>
+              <option>Grey</option>
+              <option>Yellow</option>
+            </select>
+          </div>
+          <div class="col-sm-4 my-1">
+            <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Price:</div>
+              </div>
+              <input ngModel name="minprice" type="number" #minprice="ngModel" class="form-control" id="validationCustomUsername" placeholder="Minimum">
+              <input ngModel name="maxprice" type="number" #maxprice="ngModel" class="form-control" id="inlineFormInputGroupUsername" placeholder="Maximum">
+              <!-- <span class="invalid-feedback" *ngIf="minprice.value===5">Please enter a number</span> -->
+            </div>
+          </div>
+          
+          <div class="col-auto my-1">
+            <div class="form-check">
+              <input ngModel name="isFreeShipping" class="form-check-input" type="checkbox" id="autoSizingCheck2">
+              <label class="form-check-label" for="autoSizingCheck2">
+                Free Shipping
+              </label>
+            </div>
+          </div>
+          <div class="col-auto my-1">
+            <button type="submit" class="btn btx" [disabled]="!f.valid">Submit</button>
+          </div>
+        </div>
+      </form>
+      <div *ngIf="maxprice.value<minprice.value && minprice.touched && maxprice.touched" class="alert alert-danger" role="alert">
+        Maximum price should be less than Minimum Price
+      </div>
+  </div>
+  
+  <!-- <div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown link
+    </a>
+  
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </div> -->
