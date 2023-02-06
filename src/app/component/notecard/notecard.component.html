@@ -26,7 +26,14 @@
                 
                     <div class="sizes">
                         <h6 class="text-uppercase">Size</h6> 
-                        <label class="radio" *ngFor="let size of product.sizes"> <input type="radio" name="size"> <span>{{size}}</span> </label> 
+                        <label class="radio" *ngFor="let size of product.sizes; let i=index">
+                            <div *ngIf="i===0; else unchecked">
+                                <input type="radio" name={{product.key}} [value]="size" (change)="radioChangeHandler($event)" checked={{true}} id={{product.key}}> <span>{{size}}</span> 
+                            </div>
+                            <ng-template #unchecked>
+                                <input type="radio" name={{product.key}} [value]="size" (change)="radioChangeHandler($event)"> <span>{{size}}</span> 
+                            </ng-template>
+                        </label> 
                     </div>
                 </div>                    
                 <div class="align-items-center align-content-center col-md-3 border-left mt-1">

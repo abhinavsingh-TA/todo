@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // if(!this.userService.user)
-    //     this.router.navigate(['/'])
+    if(!this.userService.user)
+        this.router.navigate(['/'])
 
     let url="https://mocki.io/v1/597dbee8-3eac-4de5-b464-19a9aed78f07"
     this.http.get(url).subscribe(products=>{
@@ -57,21 +57,6 @@ export class HomeComponent implements OnInit {
       this.maxLen = Math.ceil(this.userService.products.length/5)
     }
   }
-
-
-  // addNote(){
-  //   this.userService.notes.push({key: this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss:sss'),title: this.title, description: this.description})
-  //   this.title=""
-  //   this.description=""
-  //   console.log(this.userService.notes)
-  // }
-
-  // autogrow(){
-  //   let  textArea = document.getElementById("form1Example2")       
-  //   textArea.style.overflow = 'hidden';
-  //   textArea.style.height = '0px';
-  //   textArea.style.height = textArea.scrollHeight + 'px';
-  // }
 
 
 }

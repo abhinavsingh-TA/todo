@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/app/users.service';
 
 @Component({
@@ -12,9 +13,12 @@ export class PaymentComponent implements OnInit {
   total: number = 0
   freeShipping: boolean = true
 
-  constructor(protected userService: UsersService) { }
+  constructor(protected userService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
+    if(!this.userService.user)
+        this.router.navigate(['/'])
+
     this.cartArray = [...this.userService.cart]
 
     this.calculateSum()    
@@ -26,11 +30,12 @@ export class PaymentComponent implements OnInit {
     this.freeShipping = true
     this.userService.cartTotal = 0
     for(let item of this.userService.cart.values()){
-      this.total += (item.total*item.price)
+      this.total += (item.total*item.product.price)
       this.userService.cartTotal += item.total
-      if(!item.isFreeShipping)
+      if(!item.product.isFreeShipping)
         this.freeShipping = false
     }
+    this.total = Math.round(this.total*100)/100
   }
 
   incdec(symbol: string, key: string){

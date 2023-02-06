@@ -30,6 +30,7 @@ export class SearchbarComponent implements OnInit {
   }
 
   clearFilter(){
+    this.userService.curPage = 1
     this.userService.curProducts = this.userService.products.slice(0,5)
     this.userService.allSearchProduct = []
     this.searchProduct = ""
@@ -41,13 +42,13 @@ export class SearchbarComponent implements OnInit {
     const obj = form.value
     console.log(obj)
     let arr: product[] = this.userService.products
-    if(obj.sort != "Sort By"){
+    if(obj.sort && obj.sort != "Sort By"){
       if(obj.sort == 'Price: High to Low')
         arr = arr.sort((obj1, obj2)=>obj2.price-obj1.price)
       else
         arr = arr.sort((obj1, obj2)=>obj1.price-obj2.price)
     }
-    if(obj.color != "Filter by color"){
+    if(obj.color && obj.color != "Filter by color"){
       arr = arr.filter(obj1=>obj1.title.toLowerCase().includes(obj.color.toLowerCase()))
     }
     if(obj.isFreeShipping){

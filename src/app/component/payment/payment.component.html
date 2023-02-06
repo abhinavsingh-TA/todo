@@ -11,13 +11,16 @@
                 <div class="row main align-items-center">
                     <!-- <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div> -->
                     <div class="col">
-                        <div class="row text-muted">{{item[1].style}}</div>
-                        <div class="row">{{item[1].title}}</div>
+                        <!-- <div class="row text-muted">{{item[1].product.style}}</div> -->
+                        <div class="row">{{item[1].product.title}}</div>
                     </div>
-                    <div class="col">
-                        <a (click)="incdec('-', item[0])" *ngIf="item[1].total>1">-</a><a class="border">{{item[1].total}}</a><a (click)="incdec('+', item[0])">+</a>
+                    <div class="col" [ngStyle]="{marginLeft: '30px'}">
+                        <div class="row">{{item[1].sizeSelected}}</div>
                     </div>
-                    <div class="col">{{item[1].currencyFormat+" "+item[1].price}}<span class="close"></span></div>
+                    <div class="col" [ngStyle]="{marginLeft: '-40px'}">
+                        <a (click)="incdec('-', item[0])" [ngStyle]="item[1].total==1 && {pointerEvents: 'none'}">-</a><a class="border">{{item[1].total}}</a><a (click)="incdec('+', item[0])">+</a>
+                    </div>
+                    <div class="col">{{item[1].product.currencyFormat+" "+item[1].product.price}}<span class="close"></span></div>
                     <div class="col">
                         <svg (click)="deleteItem(item[0])" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
