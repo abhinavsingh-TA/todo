@@ -12,7 +12,7 @@ export class UsersService {
   allSearchProduct: product[] = []
   curPage: number = 1
   curProducts: product[]
-  cart: Map<string, {product: product, total: number, sizeSelected: string}> = new Map<string, {product, total: number, sizeSelected: string}>()
+  cart: Map<string, {product: product, total: number, sizeSelected: string}> = new Map<string, {product: product, total: number, sizeSelected: string}>()
   cartTotal: number = 0
 
   constructor(private authService: SocialAuthService, private router: Router) { }
@@ -29,8 +29,15 @@ export class UsersService {
     console.log(this.user)
     this.authService.signOut();
     this.router.navigate(['/'])
+  }
+
+  clearAll(){
     this.cart.clear()
     this.cartTotal = 0
+    this.products = []
+    this.allSearchProduct = []
+    this.curProducts = []
+    this.curPage = 1
   }
   
 }

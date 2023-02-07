@@ -37,11 +37,30 @@ export class SearchbarComponent implements OnInit {
     var form = (<HTMLFormElement>document.getElementById("searchForm")).reset();
   }
 
+  uniqArray(array: product[]) {
+    let keyArr:any[] = []
+    for(let i=0;i<array.length;i++)
+      keyArr.push(array[i].key)
+    const result: product[] = [];
+    console.log(keyArr)
+    keyArr = keyArr.filter((key, index)=>keyArr.indexOf(key) === index)
+    console.log(keyArr)
+    let i = 0
+    for(const key of keyArr){
+      if(array[i].key===key)
+        result.push(array[i++])
+    }
+    return result;
+}
+
   onSubmit(form: NgForm){
     this.userService.curPage = 1
     const obj = form.value
     console.log(obj)
+    console.log(this.userService.products)
     let arr: product[] = this.userService.products
+    arr = this.uniqArray(arr)
+
     if(obj.sort && obj.sort != "Sort By"){
       if(obj.sort == 'Price: High to Low')
         arr = arr.sort((obj1, obj2)=>obj2.price-obj1.price)
@@ -51,11 +70,11 @@ export class SearchbarComponent implements OnInit {
     if(obj.color && obj.color != "Filter by color"){
       arr = arr.filter(obj1=>obj1.title.toLowerCase().includes(obj.color.toLowerCase()))
     }
+    if(obj.minprice && obj.maxprice){
+      arr = arr.filter(obj1=>(obj1.price>=obj.minprice && obj1.price<=obj.maxprice))
+    }
     if(obj.isFreeShipping){
       arr = arr.filter(obj=>obj.isFreeShipping)
-    }
-    if(obj.minprice && obj.maxprice){
-      arr = arr.filter(obj1=>obj1.price>=obj.minprice && obj1.price<=obj.maxprice)
     }
 
     console.log(arr)
