@@ -25,6 +25,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCommonModule} from '@angular/material/core';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +50,10 @@ import {MatCommonModule} from '@angular/material/core';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatCommonModule
+    MatCommonModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatDialogModule
   ],
   providers: [
     {

@@ -24,6 +24,10 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.editTitle = this.userService.editData.title
     this.editDesc = this.userService.editData.description
     this.formModal.show()
+
+    let backdrop = document.querySelector('.modal-backdrop') as HTMLDivElement
+    if(backdrop!==null)
+      backdrop.remove()
   }
 
 

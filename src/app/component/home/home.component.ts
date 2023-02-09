@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   title: string = ""
   description: string = ""
   tasks: any[] = [];
+  panelOpenState: boolean = false;
 
   constructor(protected userService: UsersService, public datepipe: DatePipe) {
     let currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss:sss');
