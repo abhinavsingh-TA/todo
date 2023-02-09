@@ -8,7 +8,7 @@ import { UsersService } from 'src/app/users.service';
 })
 export class NotecardComponent implements OnInit {
   
-  @Input() note: {key: string, title: string, description: string}
+  @Input() note: {key: string, title: string, description: string, completed: boolean}
   editData: {key: string, title: string, description: string}
   
   constructor(protected userService: UsersService) { }
@@ -31,6 +31,13 @@ export class NotecardComponent implements OnInit {
     for(let i=0;i<this.userService.notes.length;i++){
       if(this.userService.notes[i].key === key)
         this.userService.notes.splice(i, 1);
+    }
+  }
+
+  completed(key: string){
+    for(let i=0;i<this.userService.notes.length;i++){
+      if(this.userService.notes[i].key === key)
+        this.userService.notes[i].completed = ! this.userService.notes[i].completed
     }
   }
 

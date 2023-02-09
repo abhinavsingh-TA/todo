@@ -11,6 +11,7 @@ import { UsersService } from 'src/app/users.service';
 export class HomeComponent implements OnInit {
   title: string = ""
   description: string = ""
+  tasks: any[] = [];
 
   constructor(protected userService: UsersService, public datepipe: DatePipe) {
     let currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss:sss');
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   addNote(){
-    this.userService.notes.push({key: this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss:sss'),title: this.title, description: this.description})
+    this.userService.notes.push({key: this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss:sss'),title: this.title, description: this.description, completed: false})
     this.title=""
     this.description=""
     console.log(this.userService.notes)
@@ -33,6 +34,20 @@ export class HomeComponent implements OnInit {
     textArea.style.overflow = 'hidden';
     textArea.style.height = '0px';
     textArea.style.height = textArea.scrollHeight + 'px';
+  }
+
+  addTask(task: string) {
+    if (task === "") return;
+    this.tasks.push({
+      text: task,
+      done: false
+    });
+  }
+  removeTask(task) {
+    this.tasks.splice(this.tasks.indexOf(task), 1);
+  }
+  toggle(task) {
+    task.done = !task.done;
   }
 
 

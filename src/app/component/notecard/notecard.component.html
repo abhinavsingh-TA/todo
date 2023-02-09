@@ -1,4 +1,28 @@
-<div>
+<mat-card class="inline-block d-flex justify-content-between">
+    <!-- <h1 *ngIf="!note.completed" class="d-flex flex-row">{{note.title}}</h1>
+    <h1 *ngIf="note.completed" class="d-flex flex-row strike-text">{{note.title}}</h1> -->
+    <mat-card-header>
+        <mat-card-title *ngIf="!note.completed">{{note.title}}</mat-card-title>
+        <mat-card-title *ngIf="note.completed" class="strike-text">{{note.title}}</mat-card-title>
+        <mat-card-subtitle *ngIf="!note.completed">{{note.description}}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="d-flex justify-content-between">
+      <button (click)="openModal()" [disabled]="note.completed" [ngStyle]="{color: '#45B8AC'}" matTooltip="Delete task" matTooltipPosition="above" mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+      </button>
+      <button (click)="deleteNote(note.key)" [ngStyle]="{color: '#DD4124'}" matTooltip="Delete task" matTooltipPosition="above" mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+      </button>
+      <button (click)="completed(note.key)" *ngIf="!note.completed" [ngStyle]="{color: 'green'}" matTooltip="Delete task" matTooltipPosition="above" mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">check</mat-icon>
+      </button>
+      <button (click)="completed(note.key)" *ngIf="note.completed" [ngStyle]="{color: '#EFC050'}" matTooltip="Delete task" matTooltipPosition="above" mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">undo</mat-icon>
+      </button>
+    </div>
+</mat-card>
+
+<!-- <div>
     <div class="card mb-4" [ngStyle]="{backgroundColor: '#d9d9d9'}">
         <div class="card-body"  class="card-deck" [ngStyle]="{height: '15em', padding: '1em'}">
         <h4 class="card-title" *ngIf="note.title.length<25">{{note.title}}</h4>
@@ -8,9 +32,11 @@
         <div class="d-flex justify-content-between">
         <button class="btn" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}" (click)="openModal()">Edit</button>
         <button class="btn" [ngStyle]="{backgroundColor: '#666666', color: 'whitesmoke'}" (click)="deleteNote(note.key)">Delete</button>
+        <button class="btn btn-success" (click)="completed(note.key)" *ngIf="note.completed">Completed</button>
+        <button class="btn btn-danger" (click)="completed(note.key)" *ngIf="!note.completed">Incomplete</button>
         </div>
         </div>
     </div>
-</div>
+</div> -->
   
 <app-modal *ngIf="this.userService.edit"></app-modal>

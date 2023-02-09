@@ -1,3 +1,4 @@
+<br>
 <div class="container">
     <div class="row">
          <div class="container" [ngStyle]="{width: '30em'}">
@@ -10,14 +11,41 @@
               <textarea type="text" id="form1Example2" class="form-control" placeholder="Description" [(ngModel)]="description" (keyup)="autogrow()" [ngStyle]="{minHeight: '100px', maxHeight: '400px'}"></textarea>
             </div>
           
-            <button (click)="addNote()" [disabled]="!(title.length>0)" class="btn btn-block" [ngStyle]="{backgroundColor: '#808080', color: 'whitesmoke'}">Add</button>
+            <button (click)="addNote()" [disabled]="!(title.length>0)" class="btn btn-block" [ngStyle]="{backgroundColor: '#6B5B95', color: 'whitesmoke'}">Add</button>
           </div>
           <br>
         </div> 
         <hr>
-        <div class="col-md-6 col-lg-4 col-12" *ngFor="let note of this.userService.notes">
+        <!-- <div class="col-md-6 col-lg-4 col-12" *ngFor="let note of this.userService.notes">
         <app-notecard [note]="note"></app-notecard>
-      </div>
+      </div> -->
+
+      <mat-card id="container moth-card">
+        <mat-card-title [ngStyle]="{textAlign: 'center'}">ToDo</mat-card-title>
+        <div *ngFor="let note of this.userService.notes">
+          <app-notecard [note]="note"></app-notecard>
+        </div>
+      </mat-card>
+      
     </div>
 </div>
 
+
+<!-- <mat-card id="moth-card">
+  <mat-card-title>Live Stats</mat-card-title>
+
+ <mat-card class="inline-block d-flex justify-content-between">
+        <h1 class="d-flex flex-row">h1art 1</h1>
+        <div class="d-flex justify-content-between">
+          <button  matTooltip="Delete task" matTooltipPosition="above" mat-icon-button>
+            <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+          </button>
+          <button  matTooltip="Delete task" matTooltipPosition="above" mat-icon-button>
+            <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+          </button>
+          <button  matTooltip="Delete task" matTooltipPosition="above" mat-icon-button>
+            <mat-icon aria-label="Example icon-button with a heart icon">check</mat-icon>
+          </button>
+        </div>
+ </mat-card>
+</mat-card> -->

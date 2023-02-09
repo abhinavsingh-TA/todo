@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
   user: SocialUser
-  notes: {key: string, title: string, description: string}[] = []
+  notes: {key: string, title: string, description: string, completed: boolean}[] = []
   edit: boolean = false
   editData: {key: string, title: string, description: string}
   
@@ -23,6 +23,7 @@ export class UsersService {
   signOut(): void {
     console.log(this.user)
     this.authService.signOut();
+    this.notes = []
   }
   
 }
