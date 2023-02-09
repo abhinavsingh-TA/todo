@@ -28,10 +28,13 @@ export class NotecardComponent implements OnInit {
   }
   
   deleteNote(key: string){
-    for(let i=0;i<this.userService.notes.length;i++){
-      if(this.userService.notes[i].key === key)
-        this.userService.notes.splice(i, 1);
+    if(confirm("Are you sure to delete this task?")) {
+      for(let i=0;i<this.userService.notes.length;i++){
+        if(this.userService.notes[i].key === key)
+          this.userService.notes.splice(i, 1);
+      }
     }
+    return
   }
 
   completed(key: string){
